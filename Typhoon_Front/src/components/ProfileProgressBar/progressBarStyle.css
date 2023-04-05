@@ -1,0 +1,15 @@
+.wrapper{
+   margin: .5rem;
+}
+.progressBarContainer{
+    display: flex;
+    margin: 2rem;
+    flex-direction: column;
+}
+.label {
+    font-size: 10px;
+    color: rgb(2, 68, 2);
+  }
+ .nom-module{
+    margin-left: .5rem;
+ }

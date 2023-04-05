@@ -1,0 +1,9 @@
+.Typhoon-logo{
+    @media (max-width: 768px) {
+        img { 
+            display: block;
+            position: absolute;
+            
+         }
+    }
+}

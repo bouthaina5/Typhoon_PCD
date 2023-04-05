@@ -1,0 +1,80 @@
+
+[
+  {
+    "id": 1,
+    "moduleName": "Génie Logiciel I",
+    "Niveau": "II2",
+    "volumehoraire": 32,
+    "semestre": "S3",
+    "objectif": [
+      "Développer la capacité de concevoir, implémenter, tester et maintenir des systèmes logiciels",
+      "Apprendre les langages de programmation, les algorithmes et les structures de données",
+      "Comprendre les processus et les méthodologies de développement de logiciels"
+    ],
+    "image":"/images/GL.jpg"
+  },
+  {
+    "id": 2,
+    "moduleName": "Réseaux Locaux",
+    "Niveau": "II2",
+    "volumehoraire": 60,
+    "semestre": "S4",
+    "objectif": [
+      "Développer la capacité de concevoir, implémenter, tester et maintenir des systèmes logiciels",
+      "Apprendre les langages de programmation, les algorithmes et les structures de données",
+      "Comprendre les processus et les méthodologies de développement de logiciels"
+    ],
+    "image":"/images/RL.jpg"
+  },
+  {
+    "id": 3,
+    "moduleName": "Imagerie",
+    "Niveau": "II3",
+    "volumehoraire": 32,
+    "semestre": "S5",
+    "objectif": [
+      "Développer la capacité de concevoir, implémenter, tester et maintenir des systèmes logiciels",
+      "Apprendre les langages de programmation, les algorithmes et les structures de données",
+      "Comprendre les processus et les méthodologies de développement de logiciels"
+    ],
+    "image":"/images/imagerie.jpg"
+  },
+  {
+    "id": 4,
+    "moduleName": "Réseaux Informatiques",
+    "Niveau": "II2",
+    "volumehoraire": 40,
+    "semestre": "S4",
+    "objectif": [
+      "Développer la capacité de concevoir, implémenter, tester et maintenir des systèmes logiciels",
+      "Apprendre les langages de programmation, les algorithmes et les structures de données"
+    ],
+    "image":"/images/GL.jpg"
+  },
+  {
+    "id": 5,
+    "moduleName": "Logique Formelle",
+    "Niveau": "II1",
+    "volumehoraire": 32,
+    "semestre": "S1",
+    "objectif": [
+      "Développer la capacité de concevoir, implémenter, tester et maintenir des systèmes logiciels",
+      "Apprendre les langages de programmation, les algorithmes et les structures de données",
+      "Comprendre les processus et les méthodologies de développement de logiciels"
+    ],
+    "image":"/images/GL.jpg"
+  },
+  {
+    "id": 6,
+    "moduleName": "Architecture Logicielle",
+    "Niveau": "II2",
+    "volumehoraire": 32,
+    "semestre": "S5",
+    "objectif": [
+      "Développer la capacité de concevoir, implémenter, tester et maintenir des systèmes logiciels",
+      "Apprendre les langages de programmation, les algorithmes et les structures de données",
+      "Comprendre les processus et les méthodologies de développement de logiciels"
+    ],
+    "image":"/images/GL.jpg"
+  }
+]
