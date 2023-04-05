@@ -1,0 +1,114 @@
+tr {
+    
+    border: none;
+   
+    background-color:#f2f2f2;
+    border-bottom: 5px solid white;
+  
+  }
+  tr:hover{
+    background-color: #ffffff;
+    border-color:#555;
+  }
+  th {
+    padding: 3px; /* Modifier la valeur selon vos besoins */
+    border-bottom: 1px solid #ddd;
+    width: 30px;
+    
+    border: none;
+    
+  }
+
+  .table-question {
+    position: absolute;
+    margin-left: 10%;
+    margin-right: 10%;
+    bottom:50%;
+    border-collapse: collapse;
+    width: 80%;
+    line-height: 2;
+    border-spacing: 10px 0;
+  }
+ 
+  td {
+    padding: 10px; /* Modifier la valeur selon vos besoins */
+    border-bottom: 1px solid #ddd;
+    width: 30px;
+    border: none;
+  }
+  .lig{
+    border: none;
+    text-align: left;
+  background-color: #ffffff;
+
+  }
+  .popup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*border: 1px solid #ccc;*/
+    border:none;
+  border-radius: 5px;
+  width: 60%;
+    height: 200px;
+  background-color:#c4bebe;
+  margin-bottom: 10px;
+  position: absolute;
+ 
+ 
+  /*transform: translate(-50%, -50%);
+  /*box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.2);*/
+
+
+}
+
+ .arrow:hover{
+background-color:#DCDCDC;
+border-radius: 50%;
+overflow: hidden;
+
+ } 
+  .image :hover{
+   /* background-color:#DCDCDC;*/
+border-radius: 50%;
+overflow: hidden;
+width: 80x; /* Largeur personnalisée */
+height: 80px;
+box-shadow : 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+  }
+  input[type="radio"]:checked {
+    background-color: #0a4e29;
+  }
+  .arrow:hover{
+    box-shadow : 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+  }
+  input[type="radio"] {
+   -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    /*outline: none;*/
+    cursor: pointer;
+  }
+  .radio-group{
+    display: inline;
+  }
+  .radio-group label{
+    margin-left: 10px;
+  }
+  td img:first-child {
+    margin-right: 10px;
+  }
+ table tbody tr.popup-visible + tr {
+    transform: translateY(200px);
+  }
+  table tbody tr.popup-vis + tr {
+    transform: translateY(200px);
+  }
+  table tbody tr.popup-visible2 + tr {
+    transform: translateY(200px);
+  }
+ 
