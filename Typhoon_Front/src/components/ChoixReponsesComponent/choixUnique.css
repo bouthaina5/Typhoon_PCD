@@ -4,7 +4,15 @@
     min-height: 40% ;
     flex-direction: column;
     margin: 1rem;
-    padding: 1rem;
+    padding: 1.5rem;
+    border: solid rgba(0, 0, 0, 0.43) 1px;
+    border-radius: 15px;
+}
+
+.out-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .option-container{
@@ -20,5 +28,18 @@
 
 .option-input{
     margin-right: 1rem;
+    
 }
+
+.option-answer{
+    margin-right: 2rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color:  #FAFAFA;
+    outline: none;
+
+}
+
+
 

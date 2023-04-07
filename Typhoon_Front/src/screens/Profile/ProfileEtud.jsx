@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProfileEtud.css';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
@@ -29,6 +29,7 @@ const ProfileEtud = () => {
     setimageCrop(false);
   };
 
+
   return (
     <div className="profileEtud-container">
       <div className="item1">
@@ -49,7 +50,9 @@ const ProfileEtud = () => {
                 onClick={() => setimageCrop(true)}
                 alt=""
               />
-              <label htmlFor="">Bouthaina BEN Hamida</label>
+              <label htmlFor="" className="username">
+                Bouthaina BEN Hamida
+              </label>
             </div>
             <div className="pers-info">
               <div>
