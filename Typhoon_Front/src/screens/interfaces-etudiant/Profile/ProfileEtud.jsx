@@ -3,11 +3,11 @@ import './ProfileEtud.css';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import profileimg from '../../assets/profil.png';
+import profileimg from '../../../assets/profil.png';
 import Avatar from 'react-avatar-edit';
-import location from '../../assets/location.png';
-import mobile from '../../assets/mobile.png';
-import ProgressBarProfile from '../../components/ProfileProgressBar/ProgressBar';
+import location from '../../../assets/location.png';
+import mobile from '../../../assets/mobile.png';
+import ProgressBarProfile from '../../../components/ProfileProgressBar/ProgressBar';
 const ProfileEtud = () => {
   const [image, setImage] = useState('');
   const [imageCrop, setimageCrop] = useState('');
@@ -28,7 +28,6 @@ const ProfileEtud = () => {
     setProfile([...profile, { pview }]);
     setimageCrop(false);
   };
-
 
   return (
     <div className="profileEtud-container">

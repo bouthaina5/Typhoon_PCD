@@ -1,13 +1,10 @@
 import React from 'react';
 import './AddBanque.css';
 import { useState, useEffect } from 'react';
-import ChoixUnique from '../../components/ChoixReponsesComponent/choix unique';
-import QuestionSpace from '../../components/questionSpace/QuestionSpace';
+import QuestionSpace from '../../../components/questionSpace/QuestionSpace';
 import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
-
 const AddBanque = () => {
   const [questionList, setQuestionList] = useState([{ id: 1, value: '' }]);
-
   const handleAddQuestion = () => {
     setQuestionList((prevState) => {
       return [

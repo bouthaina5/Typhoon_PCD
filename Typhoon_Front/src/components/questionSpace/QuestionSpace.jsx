@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../screens/AddBanque/AddBanque.css';
+import '../../screens/interfaces-prof/AddBanque/AddBanque.css';
 import ChoixUnique from '../ChoixReponsesComponent/choix unique';
 import { useState, useEffect } from 'react';
 

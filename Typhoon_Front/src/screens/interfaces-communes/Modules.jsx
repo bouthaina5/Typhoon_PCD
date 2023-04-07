@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo } from 'react';
-import Card from '../components/ModuleCards/Card';
-import data from './Data.json';
+import Card from '../../components/ModuleCards/Card';
+import data from '../Data.json';
 import { useState } from 'react';
-import Filter from '../components/Filter/Filter';
+import Filter from '../../components/Filter/Filter';
 
 const Modules = () => {
   const [moduleList, setModuleList] = useState([]);
