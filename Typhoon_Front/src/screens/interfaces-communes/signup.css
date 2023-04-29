@@ -1,38 +1,12 @@
-form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
- /* .boutton1 {
-    
-    background-color:rgba(128, 128, 128, 0.5);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 150px;
-    height: 50px;
-    position: absolute;
-  top: 25%;
-  right: 50%;
-    
-  }
-  .boutton2 {
-   
-    background-color: rgba(128, 128, 128, 0.5);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 150px;
-    height: 50px;
-    position: absolute;
-  top: 25%;
-  right: 20%;
-  }*/
+
   .suivant{
-    
     background-color:rgba(32, 32, 32, 0.5);
     color: white;
     border: none;
@@ -40,9 +14,7 @@ form {
     cursor: pointer;
     width: 200px;
     height: 50px;
-    position: absolute;
-  top: 70%;
-  right: 30%;
+    font-weight: bold;
   }
   .suivant:hover{
     background-color:rgba(124, 124, 124, 0.5);
@@ -52,26 +24,35 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 460px;
+    justify-content: flex-start;
+    border: 1px solid #cccc;
+    border-radius: 15px;
+    width: 460px;
     height: 500px;
-  background-color:#faf7f7;
-  margin-bottom: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.2);
-
-
+    background-color:#faf7f7;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+ .card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  margin-left: 3rem;
+  margin-top: 2rem;
 }
 
+.card-header h2 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
- 
- .card-header {
-  font-weight: bold;
-  margin-bottom: 10px;
+.card-body{
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
   .nom  {
     width: 300px;
@@ -89,18 +70,17 @@ form {
     margin-bottom: 10px;
   }
   .lien{
-   border: 1px solid #ccc;
+  border: 1px solid #ccc;
    margin-top: 10px;
-
-   padding: 5px;
-   display: inline-block; 
+   padding-left: 1rem;
+   display: flex; 
    width: 298px;
    height: 38px;
    border-radius: 4px;
+   align-items: center;
+   justify-content: space-around; 
   }
   .lien1,.lien2{
- 
-    
    text-decoration: none;
   }
   link:hover{

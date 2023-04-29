@@ -61,7 +61,7 @@ button{
     background-color: #FAFAFA;
 }
 
-select{
+.select_answer{
 padding: 14px 20px;
 margin: 15px;
 border: none;

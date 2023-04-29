@@ -1,56 +1,52 @@
-.card1{
+/* .card1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:rgb(211, 211, 211);
+    margin-bottom: 10px;} */
+
+.card1{
+  background-color: #fafafa;
   border-radius: 5px;
-  width: 350px;
-    height: 550px;
-    background-color:rgba(211, 211, 211);
   margin-bottom: 10px;
-  position: absolute;
-  top: 10%;
-  right:3%;
- ;
- 
+  padding: 1rem;
+  height: fit-content;
 
+}
+.bigg_container{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: fit-content;
+}
 
+.buttonss{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+}
+.select_container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  row-gap: 20px;
 }
 .card-header {
     font-weight: bold;
     margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 .liste-module {
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    transform: translate(-50%, -50%);
+    margin-top: 1%;
+    margin-left: 3%;
     width: 300px;
     height: 50px;
-  }
-  .liste-banque{
-    position: absolute;
-    top: 30%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 50px;
-  }
-  .liste-class {
-    position: absolute;
-    top: 40%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 50px;
-  }
-  .liste-nbgroupe {
-    position: absolute;
-    top: 50%;
-    left:10%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 50px;
+    border-radius: 5px;
+    border-color: #212121;
   }
   .boutton1 {
    
@@ -61,9 +57,6 @@
     cursor: pointer;
     width: 150px;
     height: 50px;
-    position: absolute;
-  top: 65%;
-  left: 5%;
   }
   .boutton2 {
    
@@ -74,7 +67,5 @@
     cursor: pointer;
     width: 150px;
     height: 50px;
-    position: absolute;
-  top: 75%;
-  left: 5%;
+
   }

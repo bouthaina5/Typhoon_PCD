@@ -7,16 +7,13 @@ import Contact from './screens/interfaces-communes/Contact';
 import AddBanque from './screens/interfaces-prof/AddBanque/AddBanque';
 import ProfileEtud from './screens/interfaces-etudiant/Profile/ProfileEtud';
 import Profile from './screens/interfaces-etudiant/Profile/Profile';
-import SignUp from './screens/interfaces-communes/signup.jsx';
-import Login from './screens/interfaces-communes/login.jsx';
-import Tableau from './screens/interfaces-communes/banque.jsx';
-import Infoprof from './screens/interfaces-prof/infoprof.jsx';
-import Tableauquest from './screens/interfaces-prof/questionprof.jsx';
-import Banquejouer from './screens/interfaces-prof/banquejouer.jsx';
-import Infoetu from './screens/interfaces-etudiant/infoetu.jsx';
-import Module from './screens/interface-coordinateur/module-res.jsx';
-import Jouer from './screens/interfaces-etudiant/jouer.jsx';
-
+import Login from './screens/interfaces-communes/login';
+import SignUp from './screens/interfaces-communes/signup';
+import Tableau from './screens/interfaces-communes/banque';
+import Banquejouer from './screens/interfaces-prof/banquejouer';
+import Tableauquest from './screens/interfaces-prof/questionprof';
+import Module from './screens/interface-coordinateur/module-res';
+import CreateModule from './screens/interface-coordinateur/module-res';
 function App() {
   return (
     <Router>
@@ -28,15 +25,13 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/profileEtud" element={<ProfileEtud />} />
         <Route path="/addBanque" element={<AddBanque />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/Tableau" element={<Tableau />} />
-        <Route path="/Tableauquest" element={<Tableauquest />} />
-        <Route path="/Jouer" element={<Jouer />} />
-        <Route path="/Banquejouer" element={<Banquejouer />} />
-        <Route path="/Infoprof" element={<Infoprof />} />
-        <Route path="/Infoetu" element={<Infoetu />} />
-        <Route path="/Module" element={<Module />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signUP" element={<SignUp />} />
+        <Route path="/banque" element={<Tableau />} />
+        <Route path="/lancer_jeu" element={<Banquejouer />} />
+        <Route path="/:liste_questions" element={<Tableauquest />} />
+        <Route path="/module" element={<Module />} />
+        <Route path="/addModule" element={<CreateModule />} />
       </Routes>
     </Router>
   );

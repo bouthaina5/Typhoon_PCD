@@ -8,9 +8,9 @@ const Filter = (props) => {
           style={{
             padding:'.2em',
             borderRadius:'.7em',
-            borderColor:'#121212',}}>
-          <option value="">niveau</option>
-          <option value="">All</option>
+            borderColor:'#111111',
+            backgroundColor:'#FAFAFA'}}>
+          <option value="">tous les niveaux</option>
           <option value="II1">ii1</option>
           <option value="II2">ii2</option>
           <option value="II3">ii3</option>

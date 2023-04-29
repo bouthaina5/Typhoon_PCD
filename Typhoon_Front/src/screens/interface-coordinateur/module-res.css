@@ -1,79 +1,68 @@
-.nommodule {
+.text-input {
     width: 300px;
+    height: 50px;
+    border: 2px solid #ccc;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .select-input{
+    width: 320px;
     height: 50px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-  .comp{
-    width: 300px;
-    height: 50px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-  .objectifs{
-    width: 300px;
-    height: 50px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-  .nbrheures{
-    width: 300px;
-    height: 50px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-  .terminer{
-    background-color:rgba(32, 32, 32, 0.5);
-    position: absolute;
-    top: 550px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* font-size: 16px;  */
+    color: #333; /* couleur du texte */
+    background-color: #fafafa; /* couleur de fond */
+    /* padding: 8px 12px;  */
+    border: 1px solid #ccc; /* bordure */
+    border-radius: 4px; /* coins arrondis */
+    padding-left: 1rem;
+    margin-top: 1rem;
+    /* box-shadow: inset 0 1px 2px rgba(0,0,0,.1); ombre */
+}
+  .enregistrer{
+    
+    background-color:rgba(124, 124, 124, 0.5);
     width: 100px;
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    cursor: pointer;
   }
-  .terminer:hover{
-    background-color:rgba(124, 124, 124, 0.5);
+  .enregistrer:hover{
+    background-color:rgba(32, 32, 32, 0.5);
   }
-  select option {
-    font-family: Arial, sans-serif; /* police de caractères */
-    font-size: 16px; /* taille de police */
-    color: #333; /* couleur du texte */
-    background-color: #fff; /* couleur de fond */
-    padding: 8px 12px; /* marges intérieures */
-  }
-  select {
-    font-family: Arial, sans-serif; /* police de caractères */
-    font-size: 16px; /* taille de police */
-    color: #333; /* couleur du texte */
-    background-color: #f2f2f2; /* couleur de fond */
-    padding: 8px 12px; /* marges intérieures */
-    border: 1px solid #ccc; /* bordure */
-    border-radius: 4px; /* coins arrondis */
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.1); /* ombre */
-    width: 300px; /* largeur */
-    margin: 10px;
-  }
+  /* select option {
+    font-family: Arial, sans-serif; 
+    font-size: 16px; 
+    color: #333; 
+    background-color: #fff; 
+    padding: 8px 12px; 
+  } */
   .cartee{
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid #ccc;
-  border-radius: 5px;
-  width:600px;
+    border-radius: 5px;
+    width:600px;
     height: 600px;
-  background-color:#FFFFFF;
-  margin-bottom: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
- /* box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.2);*/
+    background-color:#FFFFFF;
+}
+.outer-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:2rem;
+}
 
-
+.inner-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
 }

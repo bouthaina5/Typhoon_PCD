@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "titre": "chapitre 1",
+    "taille": "16",
+    "difficulté": "facile",
+    "questions": [
+      {
+        "id":1,
+        "titre": "question 1",
+        "valeur": "this is question 1",
+        "auteur": "foulen",
+        "date_creation": "date"
+      },
+      {
+        "id":2,
+        "titre": "question 2",
+        "valeur": "this is question 2",
+        "auteur": "foulen",
+        "date_creation": "date"
+      },
+      {
+        "id":3,
+        "titre": "question 3",
+        "valeur": "this is question 3",
+        "auteur": "foulen",
+        "date_creation": "date"
+      },
+      {
+        "id":4,
+        "titre": "question 4",
+        "valeur": "this is question 1",
+        "auteur": "foulen",
+        "date_creation": "date"
+      },
+      {
+        "id":5,
+        "titre": "question 5",
+        "valeur": "this is question 1",
+        "auteur": "foulen",
+        "date_creation": "date"
+      },
+      {
+        "id":6,
+        "titre": "question 6",
+        "valeur": "this is question 1",
+        "auteur": "foulen",
+        "date_creation": "date"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titre": "chapitre 2",
+    "taille": "16",
+    "difficulté": "facile",
+    "questions": []
+  },
+  {
+    "id": 3,
+    "titre": "chapitre 3",
+    "taille": "16",
+    "difficulté": "facile",
+    "questions": []
+  },
+  {
+    "id": 4,
+    "titre": "unité de révision",
+    "taille": "25",
+    "difficulté": "facile",
+    "questions": []
+  },
+  {
+    "id": 5,
+    "titre": "révision examen",
+    "taille": "40",
+    "difficulté": "facile",
+    "questions": []
+  },
+  {
+    "id": 6,
+    "titre": "révision DS",
+    "taille": "30",
+    "difficulté": "facile",
+    "questions": []
+  }
+]

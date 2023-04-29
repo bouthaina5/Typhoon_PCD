@@ -25,7 +25,7 @@ const QuestionSpace = (props) => {
           placeholder={`question ${props.placeholder}`}
           className="banqueInput"
         />
-        <select value={choix} onChange={handleChange}>
+        <select value={choix} onChange={handleChange} className='select_answer'>
           <option value="">choose answer type</option>
           <option value="multi">Choix multiple</option>
           <option value="unique">Choix unique</option>

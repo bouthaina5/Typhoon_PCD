@@ -1,13 +1,11 @@
-
 import React, { useState } from 'react';
-import './signup.css';
-
+import './login.css';
 import { Link } from 'react-router-dom';
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    nomprenom: 'nom et prénom',
-   
-    email: 'adresse mail professionnelle @ensi-uma.tn'
+    nomprenom: '',
+    email: '',
+    password: '',
   });
 
   const handleInputChange = (event) => {
@@ -21,68 +19,79 @@ const SignUp = () => {
     event.preventDefault();
     console.log(formData);
   };
-  const verticalBarStyles = {
-    height: "38px",
-    width: "1px",
-    backgroundColor: "#000",
-    display: "inline-block",
-    margin: "0 10px"
-  };
-  
-
+  // const verticalBarStyles = {
+  //   height: '38px',
+  //   width: '1px',
+  //   backgroundColor: '#000',
+  //   display: 'inline-block',
+  //   margin: '0 10px',
+  // };
 
   return (
-    
-    <div className="container">
-    <div className="card">
-      <div className="card-header"><h1>Inscrivez -vous gratuitement ou connectez-vous</h1></div>
-      <div className="card-body">
-    <div className="lien">
-      <Link  to ='/SignUp'className="lien1">Inscription gratuite</Link>
-      <div style={verticalBarStyles}></div>
-
-      <Link to='/Login' class="lien2">se connecter</Link>
-   
-    </div>
-    <form onSubmit={handleSubmit}>
-      <div>
-        
-        <input className='nom'
-          type="text"
-          id="nomprenom"
-          name="nomprenom"
-          value={formData.nomprenom}
-          onChange={handleInputChange}
-          
-      style={{ color: '#666' }}
-        />
+    <div className="conteneur">
+      <div className="carte-signup">
+        <div className="titre">
+          <h2>Inscrivez-vous gratuitement </h2>
+        </div>
+        <div className="cartcorps">
+          <form onSubmit={handleSubmit}>
+            <div>
+              <input
+                className="mail"
+                type="text"
+                id="nomprenom"
+                name="nomprenom"
+                value={formData.nomprenom}
+                onChange={handleInputChange}
+                style={{ color: '#666' }}
+                placeholder="Ecrivez votre mail professionnel ici"
+              />
+            </div>
+            <div>
+              <input
+                className="mail"
+                type="text"
+                id="nomprenom"
+                name="nomprenom"
+                value={formData.nomprenom}
+                onChange={handleInputChange}
+                style={{ color: '#666' }}
+                placeholder="Ecrivez votre nom ici"
+              />
+            </div>
+            <div>
+              <input
+                className="mdp"
+                type="text"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                style={{ color: '#666' }}
+                placeholder="mot de passe"
+              />
+            </div>
+            <div>
+              <input
+                className="mdp"
+                type="text"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                style={{ color: '#666' }}
+                placeholder="confirmer mot de passe"
+              />
+            </div>
+            <button className="inscription-button">S'inscrire</button>
+          </form>
+          <span className="link">
+            Vous avez déja un compte? <a style={{cursor:'pointer'}} href='/Login'>connectez vous</a>
+          </span>
+        </div>
       </div>
-      
-      <div>
-        
-        <input className='email'
-          type="text"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          
-          style={{ color: '#666' }}
-        />
-      </div>
-      
-    </form>
-    <button class="suivant">
-    suivant
-    </button>
     </div>
-    </div>
-    </div>
-    
-    
   );
 };
 
 export default SignUp;
-
-

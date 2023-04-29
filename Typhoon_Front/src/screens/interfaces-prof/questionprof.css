@@ -14,13 +14,18 @@ tr {
     padding: 3px; /* Modifier la valeur selon vos besoins */
     border-bottom: 1px solid #ddd;
     width: 30px;
-    
     border: none;
     
   }
 
+
+  .table_container{
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .table-question {
-    position: absolute;
     margin-left: 10%;
     margin-right: 10%;
     bottom:50%;
