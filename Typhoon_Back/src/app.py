@@ -90,9 +90,30 @@ def module():
       res= data['responsable']
       cli = MongoClient("mongodb+srv://zaynebsamaali:zayneb123@cluster0.hzdvpwq.mongodb.net/test")
       base=cli['Banques-Questions']
+      #db=cli['Users']
+      #collec=['comptesprofesseurs']
+      #collec.find_one()
       coll=base['Modules']
       coll.insert_one({'nom':nom,'nombre heures':nbr,'objectifs':obj,'compétences':comp,'niveau':niv,'responsable module':res,'semester':sem})
       return('hhhh')
+
+@app.route('/carte',methods=['GET','POST','DELETE'])
+def creation():
+    cli = MongoClient("mongodb+srv://zaynebsamaali:zayneb123@cluster0.hzdvpwq.mongodb.net/test")
+    base=cli['Banques-Questions']
+    coll=base['Modules']
+    données=[]
+    for document in coll.find():
+        données.append(document)
+    return jsonify({'données':données})
+   
+if __name__ == "__main__":
+    app.debug =True
+    app.run(debug =True )
+
+
+
+
 
 
 
@@ -181,9 +202,7 @@ def module():
 
 
 
-if __name__ == "__main__":
-    app.debug =True
-    app.run(debug =True )
+
 
 
 
