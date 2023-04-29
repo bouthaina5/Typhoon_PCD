@@ -3,17 +3,56 @@ import './infoetu.css'
 const Infoetu = () => {
     const [formData, setFormData] = useState({
       numtelephone: '',
-      plaisir:'enterez votre plaisirs'
+      plaisir:''
     });
+    const [listeniveau, setListeniveau] = useState('');
+    const [groupe, setGroupe] = useState('');
+    const [club, setClub] = useState('');
+    const data = {
+      numtelephone: formData.numtelephone,
+      plaisir: formData.plaisir,
+      listeniveau:listeniveau,
+      groupe:groupe,
+      club:club
+    };
     const handleInputChange = (event) => {
         setFormData({
           ...formData,
           [event.target.name]: event.target.value,
         });
+        
       };
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(formData);
+      const handleInputChangelist = (event) => {
+        setListeniveau(
+          event.target.value
+          
+        );};
+        const handleInputChangegroupe = (event) => {
+          setGroupe(
+            event.target.value
+            
+          );};
+          const handleInputChangeclub = (event) => {
+            setClub(
+              event.target.value
+              
+            );};
+
+      const handleSubmit = async(e) => {
+        e.preventDefault();
+        
+        const response = await fetch("http://127.0.0.1:5000/infoetu" ,{
+          method:'POST',
+           headers: {
+            'Content-Type': 'application/json',
+    
+          },
+         body:JSON.stringify(data),
+         mode : 'cors'
+          
+         });
+        
+         console.log (data);
       };
       return(
         <div className="container">
@@ -21,37 +60,37 @@ const Infoetu = () => {
       <div className="card-header"><h1>Formulaire d'informations personnelles</h1></div>
       <div className="card-body"></div>
 
-<select className='liste-niveau'name="liste-niveau">
-<option value="option-1">niveau</option>
-  <option value="option-1">II1</option>
-  <option value="option-1">II2</option>
-  <option value="option-2">II3</option>
-  <option value="option-2">MASTER</option>
+<select className='liste-niveau'name="liste-niveau"    >
+<option value="niveau">niveau</option>
+  <option value="II1">II1</option>
+  <option value="II2">II2</option>
+  <option value="II3">II3</option>
+  <option value="MASTER">MASTER</option>
  
 </select>
 
-<select className='liste-groupe' name="liste-groupe">
-<option value="option-1">groupe</option>
-  <option value="option-1">A</option>
-  <option value="option-1">B</option>
-  <option value="option-2">C</option>
-  <option value="option-2">D</option>
-  <option value="option-2">E</option>
-  <option value="option-2">F</option>
+<select className='liste-groupe' name="liste-groupe"  >
+<option value="groupe">groupe</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
  
 </select>
-<select className='liste-club' name="liste-club">
-<option value="option-1">club</option>
-  <option value="option-1">EJE</option>
-  <option value="option-1">ENACTUS</option>
-  <option value="option-2">ARE</option>
-  <option value="option-2">OSSEC</option>
-  <option value="option-2">CPS</option>
-  <option value="option-2">CPC</option>
-  <option value="option-1">IEEE</option>
-  <option value="option-2">CO'ART</option>
-  <option value="option-2">ENSI MUSIC CLUB</option>
-  <option value="option-2">GDG</option>
+<select className='liste-club' name="liste-club"  value={club} onChange={handleInputChangeclub}>
+<option value="club">club</option>
+  <option value="EJE">EJE</option>
+  <option value="ENACTUS">ENACTUS</option>
+  <option value="ARE">ARE</option>
+  <option value="OSSEC">OSSEC</option>
+  <option value="CPS">CPS</option>
+  <option value="CPC">CPC</option>
+  <option value="IEEE">IEEE</option>
+  <option value="CO'ART">CO'ART</option>
+  <option value="ENSI MUSIC CLUB">ENSI MUSIC CLUB</option>
+  <option value="GDG">GDG</option>
   
  
 </select>
@@ -71,10 +110,10 @@ const Infoetu = () => {
           name="plaisir"
           value={formData.plaisir}
           onChange={handleInputChange}
-          
+          placeholder='entrez vos plaisirs'
       style={{ color: '#666' }}
         />
-       <button className='creation'>
+       <button className='creation' onClick={handleSubmit}>
   <strong> créer un compte </strong>
     </button> 
 </form>

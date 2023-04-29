@@ -16,7 +16,7 @@ function App(){
 
   return (
    <Router>
-   
+   <Module/>
   <Routes>
     <Route path='/Login' element={<Login/>}/>
     <Route path='/SignUp' element={<SignUp/>}/>

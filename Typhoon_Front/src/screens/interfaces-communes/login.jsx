@@ -6,10 +6,12 @@ const Login = () => {
   
 
   const [formData, setFormData] = useState({
-    motdepasse:'mot de passe',
+    email:'',
+    motdepasse:''
    
-    email:'adresse mail professionnelle @ensi-uma.tn'
+  
   });
+  const [message ,setMessage] = useState('');
   const [showformDataError, setShowformDataError] = useState(false);
   const handleInputChange = (event) => {
     setFormData({
@@ -18,15 +20,35 @@ const Login = () => {
     });
   };
  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    /*console.log(formData);*/
-    
-    if (!formData) {
-      setShowformDataError(true);
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+     
+    if (formData){
+     const response = await fetch("http://127.0.0.1:5000/login" ,{
+      method:'POST',
+       headers: {
+        'Content-Type': 'application/json',
+
+      },
+     body:JSON.stringify(formData),
+     mode : 'cors'
+   
       
-    }
-  };
+     })
+     .then(response => response.json())
+   
+     .then(data => {
+      if (data.val === "valide") {
+       console.log(data);
+
+      } else {
+        setMessage('Invalid email address');
+        
+      }})
+     console.log(message);
+     console.log (formData);
+     };
+   };
  
   const verticalBarStyles = {
     height: "38px",
@@ -48,13 +70,7 @@ const Login = () => {
     <div className="carte">
       <div className="titre"><h1>Inscrivez -vous gratuitement ou connectez-vous</h1></div>
       <div className="cartecorps">
-    <div class="link">
-      <Link to ='/SignUP' class="link1">Inscription gratuite</Link>
-      <div style={verticalBarStyles}></div>
 
-      <Link to ='/Login' class="link2">se connecter</Link>
-   
-    </div>
     <form  className ="formulaire"onSubmit={handleSubmit}>
       
       
@@ -86,9 +102,10 @@ const Login = () => {
     </form>
    
     
-    <button class="connexion">
+    <button className="connexion" onClick={handleSubmit}>
     connexion
     </button> 
+  
     
     </div>
     </div>
