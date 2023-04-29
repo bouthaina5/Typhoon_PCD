@@ -5,7 +5,8 @@ const SignUp = () => {
     nomprenom: '',
    
     email: '',
-    password : ''
+    password : '',
+    confirmemdp:''
 
   });
 
@@ -76,9 +77,9 @@ const SignUp = () => {
               <input
                 className="mail"
                 type="text"
-                id="nomprenom"
-                name="nomprenom"
-                value={formData.nomprenom}
+                id="email"
+                name="email"
+                value={formData.email}
                 onChange={handleInputChange}
                 style={{ color: '#666' }}
                 placeholder="Ecrivez votre mail professionnel ici"
@@ -100,9 +101,9 @@ const SignUp = () => {
               <input
                 className="mdp"
                 type="text"
-                id="email"
-                name="email"
-                value={formData.email}
+                
+                name="password"
+                value={formData.password}
                 onChange={handleInputChange}
                 style={{ color: '#666' }}
                 placeholder="mot de passe"
@@ -112,9 +113,9 @@ const SignUp = () => {
               <input
                 className="mdp"
                 type="text"
-                id="email"
-                name="email"
-                value={formData.email}
+             
+                name="confirmemdp"
+                value={formData.confirmemdp}
                 onChange={handleInputChange}
                 style={{ color: '#666' }}
                 placeholder="confirmer mot de passe"
