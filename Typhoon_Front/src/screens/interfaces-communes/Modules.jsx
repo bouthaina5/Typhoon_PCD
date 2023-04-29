@@ -9,9 +9,20 @@ const Modules = () => {
   const [selectedCategory, setSelectedCategory] = useState();
   // Add default value on page load
   useEffect(() => {
-    setModuleList(data);
+    // setModuleList(data);
+    getbase();
   }, []);
-
+  const getbase = async () => {
+    const response = await fetch('http://127.0.0.1:5000/carte', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  };
   //Function to get filtered list
   function getFilteredList() {
     if (!selectedCategory) {
