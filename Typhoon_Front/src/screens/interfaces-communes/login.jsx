@@ -3,9 +3,10 @@ import './login.css';
 import { Link } from 'react-router-dom';
 const Login = () => {
   const [formData, setFormData] = useState({
-    motdepasse: '',
-    email: '',
+    email:'',
+    motdepasse:''
   });
+  const [message ,setMessage] = useState('');
   const [showformDataError, setShowformDataError] = useState(false);
   const handleInputChange = (event) => {
     setFormData({
@@ -14,21 +15,34 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+     
+    if (formData){
+     const response = await fetch("http://127.0.0.1:5000/login" ,{
+      method:'POST',
+       headers: {
+        'Content-Type': 'application/json',
+      },
+     body:JSON.stringify(formData),
+     mode : 'cors'
+   
+      
+     })
+     .then(response => response.json())
+   
+     .then(data => {
+      if (data.val === "valide") {
+       console.log(data);
 
-    if (!formData) {
-      setShowformDataError(true);
-    }
-  };
-
-  const verticalBarStyles = {
-    height: '38px',
-    width: '1px',
-    backgroundColor: '#000',
-    display: 'inline-block',
-    margin: '0 10px',
-  };
+      } else {
+        setMessage('Invalid email address');
+        
+      }})
+     console.log(message);
+     console.log (formData);
+     };
+   };
   const passwordStyle = {
     WebkitTextSecurity: 'disc', // Pour les navigateurs basés sur Webkit (Chrome, Safari)
     // textSecurity: "disc", //
@@ -67,9 +81,8 @@ const Login = () => {
                 placeholder="mot de passe"
               />
             </div>
-            <button className="connexion-button">Connexion</button>
+            <button className="connexion-button" onClick={handleSubmit}>Connexion</button>
           </form>
-          
           <span className="link">
             Vous n'avez pas un compte?{' '}
             <a style={{ cursor: 'pointer' }} href="/signUP">

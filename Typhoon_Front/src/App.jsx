@@ -12,7 +12,6 @@ import SignUp from './screens/interfaces-communes/signup';
 import Tableau from './screens/interfaces-communes/banque';
 import Banquejouer from './screens/interfaces-prof/banquejouer';
 import Tableauquest from './screens/interfaces-prof/questionprof';
-import Module from './screens/interface-coordinateur/module-res';
 import CreateModule from './screens/interface-coordinateur/module-res';
 function App() {
   return (
@@ -35,6 +34,7 @@ function App() {
       </Routes>
     </Router>
   );
+
 }
 
 export default App;

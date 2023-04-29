@@ -1,23 +1,60 @@
 import React, { useState } from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
 const SignUp = () => {
   const [formData, setFormData] = useState({
     nomprenom: '',
+   
     email: '',
-    password: '',
+    password : ''
+
   });
 
+ const [message ,setMessage] = useState('');
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
     });
   };
+ 
+ 
+ const handleSubmit = async(e) => {
+    e.preventDefault();
+     
+    if (formData){
+     const response = await fetch("http://127.0.0.1:5000/signup" ,{
+      method:'POST',
+       headers: {
+        'Content-Type': 'application/json',
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
+      },
+     body:JSON.stringify(formData),
+     mode : 'cors'
+   
+      
+     })
+     .then(response => response.json())
+   
+     .then(data => {
+      if (data.val === "valide") {
+       console.log(data);
+
+      } else {
+        setMessage('Invalid email address');
+        
+      }})
+     console.log(message);
+     console.log (formData);
+     };
+   };
+   
+ 
+  const passwordStyle = {
+    fontFamily: "Arial",
+    letterSpacing: "0.3em",
+    WebkitTextSecurity: "disc", // Pour les navigateurs basés sur Webkit (Chrome, Safari)
+   // textSecurity: "disc", //
+    color: '#666'// Pour les navigateurs basés sur Blink (Firefox, Edge)
   };
   // const verticalBarStyles = {
   //   height: '38px',

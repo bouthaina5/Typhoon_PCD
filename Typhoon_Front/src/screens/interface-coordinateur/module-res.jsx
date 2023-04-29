@@ -5,69 +5,69 @@ import ModuleService from '../../services/ModuleService';
 import './module-res.css';
 
 const CreateModule = () => {
-  const history = useNavigate();
-  const { id } = useParams();
-  const [formData, setFormData] = useState({
-    nommodule: '',
-    nbrheures: '',
-    objectifs: '',
-    compétences: '',
-  });
-
-  // useEffect(() => {
-  //   if (id !== '_add') {
-  //     ModuleService.getModuleById(id).then((res) => {
-  //       const module = res.data;
-  //       setFormData({
-  //         nommodule: module.nommodule,
-  //         nbrheures: module.nbrheures,
-  //         objectifs: module.objectifs,
-  //         compétences: module.compétences,
-  //       });
-  //     });
-  //   }
-  // }, [id]);
-
-  // const saveOrUpdateModule = (e) => {
-  //   e.preventDefault();
-  //   if (id === '_add') {
-  //     ModuleService.createModule(module).then(() => {
-  //       history.push('/modules');
-  //       console.log('succès');
-  //     });
-  //   } else {
-  //     ModuleService.updateModule(module, id).then(() => {
-  //       history.push('/modules');
-  //     });
-  //   }
-  // };
-
-  // const cancel = () => {
-  //   history.push('/modules');
-  // };
-
-  const handleInputChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    if (formData) {
-      const response = await fetch('http://127.0.0.1:5000/modules', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-        mode: 'cors',
-      });
-      console.log(formData);
-    }
-  };
-
+        const [formData, setFormData] = useState({
+            nommodule: '',
+            nbrheures: '',
+            objectifs:'',
+            compétences:' ',
+        
+          });
+          const [niveau, setNiveau] = useState('');
+          const [semester, setSemester] = useState('');
+          const [responsable, setResponsable] = useState('');
+          const data = {
+            nommodule: formData.nommodule,
+            nbrheures: formData.nbrheures,
+            objectifs:formData.objectifs,
+            compétences:formData.compétences,
+            niveau:niveau,
+          semester:semester,
+          responsable:responsable
+            
+          
+          };
+          const handleInputChange = (event) => {
+            setFormData({
+              ...formData,
+              [event.target.name]: event.target.value,
+            });
+          };
+          const handleInputChangeniveau = (event) => {
+            setNiveau(
+              event.target.value
+              
+            );};
+            const handleInputChangesemester = (event) => {
+              setSemester(
+                event.target.value
+                
+              );};
+              const handleInputChangeresponsable = (event) => {
+                setResponsable(
+                  event.target.value
+                  
+                );};
+                
+        
+          const handleSubmit = async(e) => {
+            e.preventDefault();
+             
+            if (formData){
+             const response = await fetch("http://127.0.0.1:5000/modules" ,{
+              method:'POST',
+               headers: {
+                'Content-Type': 'application/json',
+        
+              },
+             body:JSON.stringify(data),
+             mode : 'cors'
+           
+              
+             })
+             console.log(message);
+             console.log (formData);
+             };
+           };
   return (
     <div className="outer-container">
       <form>
@@ -88,31 +88,33 @@ const CreateModule = () => {
               className="select-input"
               name="liste-niveau"
               style={{ width: '150px', marginRight: '1rem' }}
+              onChange={handleInputChangeniveau}
             >
-              <option value="option-1">Niveau</option>
-              <option value="option-2">II1</option>
-              <option value="option-3">II2</option>
-              <option value="option-4">II3</option>
-              <option value="option-5">MASTER</option>
+              <option value="Niveau">Niveau</option>
+              <option value="II1">II1</option>
+              <option value="II2">II2</option>
+              <option value="II3">II3</option>
+              <option value="MASTER">MASTER</option>
             </select>
             <br></br>
             <select
               className="select-input"
               name="liste-semester"
               style={{ width: '150px', marginRight: '1rem' }}
+              value={semester} onChange={handleInputChangesemester}
             >
-              <option value="option-1">Semestre</option>
-              <option value="option-2">1</option>
-              <option value="option-3">2</option>
-              <option value="option-4">3</option>
-              <option value="option-5">4</option>
-              <option value="option-5">5</option>
+              <option value="Semester">Semester</option>
+              <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
             </select>
           </div>
           <br></br>
-          <input
+            <input
             type="text"
-            className="text-input"
+             className="text-input"
             id="nbrheures"
             name="nbrheures"
             value={formData.nbrheures}
@@ -121,17 +123,15 @@ const CreateModule = () => {
             placeholder="nombre d'heures du module"
           />
           <br></br>
-
-          <select className="select-input" name="liste-resp">
-            <option value="option-1">Responsable module</option>
-            <option value="option-2">1</option>
-            <option value="option-3">2</option>
-            <option value="option-4">3</option>
-            <option value="option-5">4</option>
-            <option value="option-5">5</option>
+          <select className="select-input" name="liste-resp" value={responsable} onChange={handleInputChangeresponsable}>
+          <option value="responsable module">Responsable module</option>
+              <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
           </select>
-          <br></br>
-
+              <br></br>
           <input
             type="text"
             className="text-input"
