@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import Card from '../../components/ModuleCards/Card';
-import data from '../Data.json';
+//import data from '../Data.json';
 import { useState } from 'react';
 import Filter from '../../components/Filter/Filter';
 
@@ -8,21 +8,22 @@ const Modules = () => {
   const [moduleList, setModuleList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState();
   // Add default value on page load
+ /* useEffect(() => {
+   // setModuleList(data);
+  
+  }, []);*/
+ 
+  const [data, setData] = useState([]);
+
   useEffect(() => {
-    setModuleList(data);
-    // getbase();
+    fetch('http://127.0.0.1:5000/carte',{ mode : 'cors'})
+      .then(response => response.json())
+      .then(data => setData(data.données))
+      
+      .catch(error => console.error(error));
+       setModuleList(data);
   }, []);
-  const getbase = async () => {
-    const response = await fetch('http://127.0.0.1:5000/carte', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const data = await response.json();
-    console.log(data);
-    return data;
-  };
+  console.log(data);
   //Function to get filtered list
   function getFilteredList() {
     if (!selectedCategory) {
@@ -65,13 +66,12 @@ const Modules = () => {
         {filteredList.map((item) => {
           return (
             <Card
-              key={item.id}
-              moduleName={item.moduleName}
-              niveau={item.Niveau}
-              volumehoraire={item.volumehoraire}
-              semestre={item.semestre}
-              objectif={item.objectif}
-              image={item.image}
+              moduleName={item.nom}
+              niveau={item.niveau}
+             // volumehoraire={item.}
+              semestre={item.semester}
+              objectif={item.objectifs}
+              //image={item.image}
             />
           );
         })}

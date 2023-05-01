@@ -104,8 +104,43 @@ def creation():
     coll=base['Modules']
     données=[]
     for document in coll.find():
+        #print (document)
+        del document['_id']
+        print (document)
+        
+        
+      
         données.append(document)
     return jsonify({'données':données})
+@app.route('/addbanque',methods=['GET','POST'])
+def banque():
+
+    
+    cli = MongoClient("mongodb+srv://zaynebsamaali:zayneb123@cluster0.hzdvpwq.mongodb.net/test")
+    base=cli['Banques-Questions']
+    coll=base['Modules']
+    tab=[]
+    for document in coll.find():
+        nom = document['nom']
+        print(nom)
+        tab.append(nom)
+    return jsonify({'module':tab})
+@app.route('/addbanque2',methods=['GET','POST'])
+def add():
+
+    
+
+    data = request.get_json()
+    print(data)
+     #cli = MongoClient("mongodb+srv://zaynebsamaali:zayneb123@cluster0.hzdvpwq.mongodb.net/test")
+    #base=cli['Banques-Questions']
+    return ('hhhhh')
+
+
+
+        
+
+
    
 if __name__ == "__main__":
     app.debug =True
