@@ -14,6 +14,7 @@ const RadioOption = (props) => {
           type="text"
           placeholder={props.choiceIndex}
           className="option-answer"
+          onChange={props.handleOptionAdd}
         ></input>
       </div>
     </div>

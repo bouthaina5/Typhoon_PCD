@@ -11,10 +11,20 @@ const AddBanque = () => {
     descriptionbanque:'',
   });
   const [data, setData] = useState([]);
+  const [questions,setQuestions]=useState([]);
+  const [options,setOptions]=useState([]);
+  const [option,setOption]=useState('');
+
+  const[nomquestion,setNomquestion]=useState('');
+ 
   const BanqueData = {
     nommodule: mod,
     nombanque: formData.nombanque,
     descriptionbanque:formData.descriptionbanque,
+  qes:nomquestion,
+  op:options
+
+
   };
   const handleInputChange = (event) => {
     setFormData({
@@ -22,6 +32,33 @@ const AddBanque = () => {
       [event.target.name]: event.target.value,
     });
   };
+  const handlequestionChange = (event) => {
+    setNomquestion(
+     
+      event.target.value,
+    );
+  };
+ /* const handleoptionChange = (event) => {
+    const newoption =event.target.value;
+    setOption(newoption);
+     
+    
+    /*setOptions((prevState) => {
+      return [
+        ...prevState,
+        newoption
+       
+      ];
+    });
+  };*/
+  const handleoptionChange = (event) => {
+    const newoption = event.target.value;
+    
+    setOption(newoption);
+  };
+
+  
+
   const handleAddQuestion = () => {
     setQuestionList((prevState) => {
       return [
@@ -45,7 +82,6 @@ const AddBanque = () => {
     fetch('http://127.0.0.1:5000/addbanque',{ mode : 'cors'})
       .then(response => response.json())
       .then(data => setData(data.module))
-      
       .catch(error => console.error(error));
        
   }, []);
@@ -70,6 +106,15 @@ const AddBanque = () => {
      };
      console.log(BanqueData);
    };
+
+   const handletab = () => {
+    setOptions((prevState)=>{
+      return [
+        ...prevState, option
+      ]
+    })
+  };
+  
   return (
     <div className="outer-container">
       <div className="inner-container">
@@ -109,7 +154,12 @@ const AddBanque = () => {
           />
           {questionList.map((question) => {
             return (
-              <QuestionSpace key={question.id} placeholder={question.id} />
+              <QuestionSpace 
+              key={question.id} 
+              placeholder={question.id} 
+              handleChangequestion={ handlequestionChange} 
+              handleoption={handleoptionChange}
+              tab = {handletab()} />
             );
           })}
           <button

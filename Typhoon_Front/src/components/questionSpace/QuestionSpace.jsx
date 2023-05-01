@@ -8,12 +8,12 @@ const QuestionSpace = (props) => {
   const [choixUnique, setChoixUnique] = useState(false);
   const [choixMulti, setChoixMulti] = useState(false);
   
-  const handleChange = (e) => {
-    setChoix(e.target.value);
-  };
+   const handleChange = (e) => {
+     setChoix(e.target.value);
+   };
   useEffect(() => {
     choix === 'multi' ? setChoixMulti(true) : setChoixMulti(false);
-    choix === 'unique' ? setChoixUnique(true) : setChoixUnique(false);
+   choix === 'unique' ? setChoixUnique(true) : setChoixUnique(false);
   }, [choix]);
   return (
     <>
@@ -24,6 +24,7 @@ const QuestionSpace = (props) => {
           name="question"
           placeholder={`question ${props.placeholder}`}
           className="banqueInput"
+          onChange = {props.handleChangequestion}
         />
         <select value={choix} onChange={handleChange} className='select_answer'>
           <option value="">choose answer type</option>
@@ -32,8 +33,8 @@ const QuestionSpace = (props) => {
         </select>
       </div>
       <div>
-        {choixUnique && <ChoixUnique type="radio" />}
-        {choixMulti && <ChoixUnique type="checkbox" />}
+        {choixUnique && <ChoixUnique type="radio" handleOption={props.handleoption} tab = {props.tab}/>}
+        {choixMulti && <ChoixUnique type="checkbox"  handleOption={props.handleoption} tab = {props.tab}/>}
       </div>
       <div className="buttons-container">
         <button

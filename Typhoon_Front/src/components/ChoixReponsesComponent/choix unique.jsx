@@ -9,7 +9,7 @@ const ChoixUnique = (props) => {
     { id: 1, index: 'Choix 1', value: { optionValue } },
   ]);
 
-  const handleAddOption = () => {
+  const handleAddOption = (props) => {
     setChoices((prevState) => {
       return [
         ...prevState,
@@ -20,6 +20,7 @@ const ChoixUnique = (props) => {
         },
       ];
     });
+    {props.tab};
   };
 
   const handleDeleteOption = (id) => {
@@ -48,6 +49,7 @@ const ChoixUnique = (props) => {
                 handleDeleteOption={() => {
                   handleDeleteOption(choice.id);
                 }}
+                handleOptionAdd={props.handleOption}
               />
               <button
                 type="button"
