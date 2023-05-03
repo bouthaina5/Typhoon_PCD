@@ -7,6 +7,7 @@ import next from '../../assets/next.png';
 import trash from '../../assets/trash.png';
 import edit from '../../assets/editing.png';
 import data from '../interfaces-communes/BanquesData.json';
+import QuestionModel from '../../components/questionModel/QuestionModel';
 const Tableauquest = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [showPopup1, setShowPopup1] = useState(false);
@@ -14,6 +15,7 @@ const Tableauquest = () => {
   const [rotate, setRotate] = useState(0);
   const{modulename}=useParams();
   const{banquename}=useParams();
+  const [modalShow, setModalShow] = React.useState(false);
 
 
   const [linePosition, setLinePosition] = useState({});
@@ -69,8 +71,10 @@ const Tableauquest = () => {
 }*/
   return (
     <div>
-      
-
+      <QuestionModel
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
       <div className="table_container">
         <table className="table-question">
           <thead>
@@ -85,8 +89,8 @@ const Tableauquest = () => {
             {questions.map((banque) => {
               return (
                 <tr>
-                  <td>{banque.nomquestion}</td>
-                  <td>{banque.type}</td>
+                  <td><button onClick={() => setModalShow(true)}>{banque.nomquestion}</button></td>
+                  <td>{}</td>
                   <td>{}</td>
                   <td></td>
                 </tr>
