@@ -1,6 +1,8 @@
+import { NavLink } from 'react-router-dom';
 import './CardStyle.css';
-
+import { Link } from 'react-router-dom';
 const Card = (props) => {
+
   return (
     <div class="container">
       <div class="card">
@@ -35,8 +37,9 @@ const Card = (props) => {
               </li>
             </ul>
             <div className='button_container'>
-            <button className='more_info_button'>
-                plus d'info
+            <button className='more_info_button' >
+              <NavLink to ={`/modules/${props.moduleName}`}>plus d'info</NavLink>
+                
             </button>
             </div>
             </div>

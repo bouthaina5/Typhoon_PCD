@@ -13,17 +13,17 @@ const Modules = () => {
   
   }, []);*/
  
-  const [data, setData] = useState([]);
+  const [mod, setMod] = useState([]);
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/carte',{ mode : 'cors'})
       .then(response => response.json())
-      .then(data => setData(data.données))
+      .then(data => setMod(data.données))
       
       .catch(error => console.error(error));
-       setModuleList(data);
+          setModuleList(mod);
   }, []);
-  console.log(data);
+  console.log(mod);
   //Function to get filtered list
   function getFilteredList() {
     if (!selectedCategory) {

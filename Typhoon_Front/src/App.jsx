@@ -26,9 +26,9 @@ function App() {
         <Route path="/addBanque" element={<AddBanque />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUP" element={<SignUp />} />
-        <Route path="/banque" element={<Tableau />} />
+        <Route path="/modules/:modulename" element={<Tableau />} />
         <Route path="/lancer_jeu" element={<Banquejouer />} />
-        <Route path="/:liste_questions" element={<Tableauquest />} />
+        <Route path="/modules/:modulename/:banquename" element={<Tableauquest />} />
         <Route path="/addModule" element={<CreateModule />} />
       </Routes>
     </Router>

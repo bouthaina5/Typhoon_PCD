@@ -135,6 +135,46 @@ def add():
      #cli = MongoClient("mongodb+srv://zaynebsamaali:zayneb123@cluster0.hzdvpwq.mongodb.net/test")
     #base=cli['Banques-Questions']
     return ('hhhhh')
+@app.route('/ban',methods=['GET','POST'])
+def xxx():
+      data = request.get_json()
+      print(data)
+      x= data['modulename']
+      clii = MongoClient("mongodb+srv://zaynebsamaali:zayneb123@cluster0.hzdvpwq.mongodb.net/test")
+      basee=clii['Banques-Questions']
+      coll=basee['Banques']
+      tab=[]
+      for document in coll.find({'nom':x}):
+        del document['_id']
+        print(document)
+
+        tab.append(document)
+      return jsonify({'données':tab})
+@app.route('/ques',methods=['GET','POST'])
+def yyy():
+    data = request.get_json()
+    print(data)
+    
+    y=data['banquename']
+    cli= MongoClient("mongodb+srv://zaynebsamaali:zayneb123@cluster0.hzdvpwq.mongodb.net/test")
+    base=cli['Banques-Questions']
+    coll=base['Questions']
+    tab=[]
+    for document in coll.find({'nbbanque':y}):
+        del document['_id']
+        print(document)
+        tab.append(document)
+    return jsonify({'données':tab})
+
+
+    
+
+
+
+
+      
+
+
 
 
 

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import './questionprof.css';
 import arrow from '../../assets/down-arrow2.png';
 import { Link } from 'react-router-dom';
@@ -11,6 +12,10 @@ const Tableauquest = () => {
   const [showPopup1, setShowPopup1] = useState(false);
   const [angle, setAngle] = useState(0);
   const [rotate, setRotate] = useState(0);
+  const{modulename}=useParams();
+  const{banquename}=useParams();
+
+
   const [linePosition, setLinePosition] = useState({});
   function handleClick1(event) {
     setRotate(angle + 180);
@@ -30,6 +35,24 @@ const Tableauquest = () => {
     });
     setShowPopup(!showPopup);
   }
+  const[questions,setQuestions]=useState([])
+  useEffect(()=> {
+    fetch("http://127.0.0.1:5000/ques" ,{
+      method:'POST',
+       headers: {
+        'Content-Type': 'application/json',
+  
+      },
+     body:JSON.stringify({banquename}),
+     mode : 'cors'
+   
+      
+     })
+     .then(response => response.json())
+     .then(data => setQuestions(data.données))
+     .catch(error => console.error(error));
+           
+    }, []);
 
   /*function handleClick2 (event) {
   const row = event.target.closest('tr'); // Trouve l'élément 'tr' parent de l'image cliquée
@@ -46,6 +69,8 @@ const Tableauquest = () => {
 }*/
   return (
     <div>
+      
+
       <div className="table_container">
         <table className="table-question">
           <thead>
@@ -57,12 +82,12 @@ const Tableauquest = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map(banque => banque.questions).map(y => {
+            {questions.map((banque) => {
               return (
                 <tr>
-                  <td>{y.titre}</td>
-                  <td>{y.auteur}</td>
-                  <td>{y.date_creation}</td>
+                  <td>{banque.nomquestion}</td>
+                  <td>{banque.type}</td>
+                  <td>{}</td>
                   <td></td>
                 </tr>
               )

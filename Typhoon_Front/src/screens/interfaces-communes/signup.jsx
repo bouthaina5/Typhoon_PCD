@@ -51,19 +51,12 @@ const SignUp = () => {
    
  
   const passwordStyle = {
-    fontFamily: "Arial",
-    letterSpacing: "0.3em",
-    WebkitTextSecurity: "disc", // Pour les navigateurs basés sur Webkit (Chrome, Safari)
+   
+    WebkitTextSecurity: "disc", 
    // textSecurity: "disc", //
-    color: '#666'// Pour les navigateurs basés sur Blink (Firefox, Edge)
+    color: '#666'
   };
-  // const verticalBarStyles = {
-  //   height: '38px',
-  //   width: '1px',
-  //   backgroundColor: '#000',
-  //   display: 'inline-block',
-  //   margin: '0 10px',
-  // };
+ 
 
   return (
     <div className="conteneur">
@@ -83,7 +76,9 @@ const SignUp = () => {
                 onChange={handleInputChange}
                 style={{ color: '#666' }}
                 placeholder="Ecrivez votre mail professionnel ici"
+                
               />
+              
             </div>
             <div>
               <input
@@ -96,6 +91,7 @@ const SignUp = () => {
                 style={{ color: '#666' }}
                 placeholder="Ecrivez votre nom ici"
               />
+              
             </div>
             <div>
               <input
@@ -105,7 +101,9 @@ const SignUp = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                style={{ color: '#666' }}
+                
+                
+                style={passwordStyle}
                 placeholder="mot de passe"
               />
             </div>
@@ -120,6 +118,8 @@ const SignUp = () => {
                 style={{ color: '#666' }}
                 placeholder="confirmer mot de passe"
               />
+              <br></br>
+               {message !== '' && <span className='err' >Email invalide!!!</span>}
             </div>
             <button className="inscription-button">S'inscrire</button>
           </form>

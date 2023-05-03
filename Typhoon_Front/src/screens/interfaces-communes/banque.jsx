@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
+
 import './banque.css';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import data from './BanquesData.json';
 const Tableau = () => {
   const [formData, setFormData] = useState({
@@ -8,17 +10,36 @@ const Tableau = () => {
     desc_module: '',
     liste: '',
   });
+  const{modulename}=useParams();
   const handlChange = (event) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
     });
   };
+  const[banques,setBanques]=useState([]);
+ useEffect(()=> {
+  fetch("http://127.0.0.1:5000/ban" ,{
+    method:'POST',
+     headers: {
+      'Content-Type': 'application/json',
 
+    },
+   body:JSON.stringify({modulename}),
+   mode : 'cors'
+ 
+    
+   })
+   .then(response => response.json())
+   .then(data => setBanques(data.données))
+   .catch(error => console.error(error));
+         
+  }, []);
   return (
     <div className="global-container">
       <div className="information">
         <label htmlFor="nom_module">nom module</label>
+<h4>{modulename}</h4>
 
         <label htmlFor="desc_module">description module</label>
 
@@ -54,19 +75,19 @@ const Tableau = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((banque) => {
+          {banques.map((banque) => {
             return (
               <tr key={banque.id}>
                 <td>
                   {' '}
                   <Link
                     style={{ textDecoration: 'none', color: 'inherit' }}
-                    to={`/${banque.id}`}
+                    to={`/modules/${banque.nom}/${banque.nbbanque}`}
                   >
-                    {banque.titre}
+                    {banque.nombanque}
                   </Link>
                 </td>
-                <td>{banque.taille}</td>
+                <td>16</td>
                 <td>{banque.difficulté}</td>
                 <td>{}</td>
               </tr>
