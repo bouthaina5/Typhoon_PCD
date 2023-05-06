@@ -51,11 +51,11 @@ const AddBanque = () => {
       ];
     });
   };*/
-  const handleoptionChange = (event) => {
+  /*const handleoptionChange = (event) => {
     const newoption = event.target.value;
     
     setOption(newoption);
-  };
+  };*/
 
   
 
@@ -78,7 +78,7 @@ const AddBanque = () => {
       
     );};
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetch('http://127.0.0.1:5000/addbanque',{ mode : 'cors'})
       .then(response => response.json())
       .then(data => setData(data.module))
@@ -106,7 +106,7 @@ const AddBanque = () => {
      };
      console.log(BanqueData);
    };
-
+*/
    const handletab = () => {
     setOptions((prevState)=>{
       return [
@@ -118,7 +118,7 @@ const AddBanque = () => {
   return (
     <div className="outer-container">
       <div className="inner-container">
-        <form onSubmit={handleSubmit}>
+        <form >
           {/* <label>Entrez le nom du module </label> */}
           {/* <input
             type="text"
@@ -140,8 +140,8 @@ const AddBanque = () => {
             name="nombanque"
             placeholder="nom de la banque"
             className="banqueInput"
-            value={formData.nombanque}
-            onChange ={handleInputChange}
+            // value={formData.nombanque}
+            // onChange ={handleInputChange}
           />
           <label>Entrez une description courte de la banque</label>
           <input
@@ -149,17 +149,17 @@ const AddBanque = () => {
             name="descriptionbanque"
             placeholder="description de la banque"
             className="banqueInput"
-            value={formData.descriptionbanque}
-            onChange ={handleInputChange}
+            // value={formData.descriptionbanque}
+            // onChange ={handleInputChange}
           />
           {questionList.map((question) => {
             return (
               <QuestionSpace 
               key={question.id} 
               placeholder={question.id} 
-              handleChangequestion={ handlequestionChange} 
-              handleoption={handleoptionChange}
-              tab = {handletab()} />
+              // handleChangequestion={ handlequestionChange} 
+              // handleoption={handleoptionChange}
+             />
             );
           })}
           <button

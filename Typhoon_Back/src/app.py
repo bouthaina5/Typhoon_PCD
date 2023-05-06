@@ -94,7 +94,7 @@ def module():
       #collec=['comptesprofesseurs']
       #collec.find_one()
       coll=base['Modules']
-      coll.insert_one({'nom':nom,'nombre heures':nbr,'objectifs':obj,'compétences':comp,'niveau':niv,'responsable module':res,'semester':sem})
+      coll.insert_one({'nom':nom,'nombreheures':nbr,'objectifs':obj,'compétences':comp,'niveau':niv,'responsablemodule':res,'semester':sem})
       return('hhhh')
 
 @app.route('/carte',methods=['GET','POST','DELETE'])
@@ -165,6 +165,11 @@ def yyy():
         print(document)
         tab.append(document)
     return jsonify({'données':tab})
+@app.route('/question',methods=['GET','POST'])
+def jibquest():
+     data = request.get_json()
+     print(data)
+
 
 
     

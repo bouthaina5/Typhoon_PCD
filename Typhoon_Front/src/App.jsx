@@ -17,6 +17,7 @@ function App() {
   return (
     <Router>
       <NavBar />
+      
       <Routes>
         <Route path="/aaa" element={<Accueil />} />
         <Route path="/modules" element={<Modules />} />

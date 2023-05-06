@@ -104,11 +104,11 @@ const CreateModule = () => {
               value={semester} onChange={handleInputChangesemester}
             >
               <option value="Semester">Semester</option>
-              <option value="1">1</option>
-             <option value="2">2</option>
-             <option value="3">3</option>
-             <option value="4">4</option>
-             <option value="5">5</option>
+              <option value="S1">1</option>
+             <option value="S2">2</option>
+             <option value="S3">3</option>
+             <option value="S4">4</option>
+             <option value="S5">5</option>
             </select>
           </div>
           <br></br>

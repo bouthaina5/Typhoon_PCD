@@ -33,7 +33,20 @@ const Login = () => {
    
      .then(data => {
       if (data.val === "valide") {
-       console.log(data);
+        if(data.role=="prof"){
+          window.location.href = "http://127.0.0.1:5173/Modules";
+
+        }
+        if(data.role =="etu"){
+          window.location.href = "http://127.0.0.1:5173/Modules";
+        }
+        if(data.role=="coor"){
+          window.location.href = "http://127.0.0.1:5173/addModule";
+        }
+        if(data.role=="admin"){
+          window.location.href = "http://127.0.0.1:5173/addModule";
+        }
+    
 
       } else {
         setMessage('Invalid email address');

@@ -20,8 +20,8 @@ const Modules = () => {
       .then(response => response.json())
       .then(data => setMod(data.données))
       
-      .catch(error => console.error(error));
-          setModuleList(mod);
+      // .catch(error => console.error(error));
+        setModuleList(mod);
   }, []);
   console.log(mod);
   //Function to get filtered list
@@ -29,7 +29,7 @@ const Modules = () => {
     if (!selectedCategory) {
       return moduleList;
     }
-    return moduleList.filter((item) => item.Niveau === selectedCategory);
+     return moduleList.filter((item) => item.niveau === selectedCategory);
   }
   // Avoid duplicate function calls with useMemo
   var filteredList = useMemo(getFilteredList, [selectedCategory, moduleList]);
@@ -68,10 +68,10 @@ const Modules = () => {
             <Card
               moduleName={item.nom}
               niveau={item.niveau}
-             // volumehoraire={item.}
+              volumehoraire={item.nombreheures}
               semestre={item.semester}
               objectif={item.objectifs}
-              //image={item.image}
+           
             />
           );
         })}
