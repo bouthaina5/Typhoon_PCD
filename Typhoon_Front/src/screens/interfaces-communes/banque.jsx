@@ -1,10 +1,19 @@
 import React, { useState , useEffect} from 'react';
-
+import {Fieldset} from  "primereact/fieldset";
 import './banque.css';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import data from './BanquesData.json';
+import"primereact/resources/themes/lara-light-indigo/theme.css"
+import"primereact/resources/primereact.min.css"
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import Table from 'react-bootstrap/Table';
+import {Rating} from 'primereact/rating';
+import PrimeReact from 'primereact/api';
+
 const Tableau = () => {
+  const [val,setVal]=useState(null)
   const [formData, setFormData] = useState({
     nom_module: '',
     desc_module: '',
@@ -35,17 +44,20 @@ const Tableau = () => {
    .catch(error => console.error(error));
          
   }, []);
+  function ToggleableDemo(){
+    return(
+        <Fieldset legend={modulename} toggleable>
+          <p>
+          La finance nourrit un objectif : maximiser la valeur de l'entreprise 
+          pour ses actionnaires à long-terme. Il s'agit, en d'autres termes, de 
+          maximiser les profits sur un horizon temporel relativement long tout en limitant les risques encourus.
+          </p>
+        </Fieldset>
+    )
+  }
   return (
     <div className="global-container">
-      <div className="information">
-        <label htmlFor="nom_module">nom module</label>
-<h4>{modulename}</h4>
-
-        <label htmlFor="desc_module">description module</label>
-
-        <label htmlFor="liste">liste des professeurs du module</label>
-      </div>
-
+     < ToggleableDemo/> 
       <div className="tri">
         <select className="liste-deroulante1" name="liste-deroulante1">
           <option value="option-1">Taille</option>
@@ -64,11 +76,10 @@ const Tableau = () => {
           <option value="option-2">décroissant</option>
         </select>{' '}
       </div>
-
-      <table className="table-conteneur">
+      <Table striped>
         <thead>
-          <tr className="ligne1">
-            <th>Titre</th>
+          <tr className='ligne1'>
+            <th >Titre</th>
             <th>Taille</th>
             <th>Difficulté</th>
             <th>Rating</th>
@@ -89,12 +100,12 @@ const Tableau = () => {
                 </td>
                 <td>16</td>
                 <td>{banque.difficulté}</td>
-                <td>{}</td>
+                <td><Rating value={val} onChange={(e)=> setVal(e.val)}  cancel={false} /> </td>
               </tr>
             );
           })}
         </tbody>
-      </table>
+      </Table> 
     </div>
   );
 };

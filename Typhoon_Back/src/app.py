@@ -165,10 +165,64 @@ def yyy():
         print(document)
         tab.append(document)
     return jsonify({'données':tab})
-@app.route('/question',methods=['GET','POST'])
-def jibquest():
+@app.route('/jouer',methods=['GET','POST'])
+def jouer():
      data = request.get_json()
-     print(data)
+    
+     nbb=data['nbbanque']
+     nbq=data['nbquestion']
+     choix=data['choix']
+     typ=data['type']
+     print(choix)
+     score =0
+     
+     cli= MongoClient("mongodb+srv://zaynebsamaali:zayneb123@cluster0.hzdvpwq.mongodb.net/test")
+     base=cli['Banques-Questions']
+     coll=base['Questions']
+     colll=base['Quiz']
+     x=coll.find_one({'nbbanque':nbb,'nbquestion':nbq})
+     if x is not None:
+       
+        tab = x['réponses']
+        if sorted(tab)==sorted(choix):
+            score = score+1
+            
+            print(score)
+        colll.insert_one({'nbquestion':nbq,'nbbanque':nbb,'score':score})
+        
+     return ('terminer')
+@app.route('/affichescore',methods=['GET','POST'])
+def affiche():
+    cli= MongoClient("mongodb+srv://zaynebsamaali:zayneb123@cluster0.hzdvpwq.mongodb.net/test")
+    base=cli['Banques-Questions']
+    colll=base['Quiz']
+    score = 0
+    for document in colll.find():
+        score = score + document['score']
+    print(score)  
+    colll.drop()
+    return jsonify({'score':score})   
+
+        
+    
+     
+     
+       
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 

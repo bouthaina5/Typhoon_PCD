@@ -1,7 +1,7 @@
 import React from "react";
 import './dropdown.css';
 import {Link} from 'react-router-dom';
-const DropdownItem = (props)=>{
+const DropdownItem= (props)=>{
     return (
         <li className="dropdownItem">
             <img src={props.img}></img>

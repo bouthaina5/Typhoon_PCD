@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './login.css';
+import  Example from '../../components/message/message'
 const SignUp = () => {
   const [formData, setFormData] = useState({
     nomprenom: '',
@@ -9,8 +10,9 @@ const SignUp = () => {
     confirmemdp:''
 
   });
-
+const[mess,setMess]=useState(false);
  const [message ,setMessage] = useState('');
+ const [smShow, setSmShow] = useState(false);
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
@@ -38,6 +40,9 @@ const SignUp = () => {
    
      .then(data => {
       if (data.val === "valide") {
+        setMessage('valid email address');
+        setSmShow(true);
+
        console.log(data);
 
       } else {
@@ -59,13 +64,14 @@ const SignUp = () => {
  
 
   return (
+
     <div className="conteneur">
       <div className="carte-signup">
         <div className="titre">
-          <h2>Inscrivez-vous gratuitement </h2>
+          <h2 style={{color:'#617a55'}}>Inscrivez-vous gratuitement </h2>
         </div>
-        <div className="cartcorps">
-          <form onSubmit={handleSubmit}>
+        <div>
+          <form onSubmit={handleSubmit} className="cartcorps">
             <div>
               <input
                 className="mail"
@@ -97,7 +103,6 @@ const SignUp = () => {
               <input
                 className="mdp"
                 type="text"
-                
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
@@ -115,17 +120,24 @@ const SignUp = () => {
                 name="confirmemdp"
                 value={formData.confirmemdp}
                 onChange={handleInputChange}
-                style={{ color: '#666' }}
+                
                 placeholder="confirmer mot de passe"
+                style={passwordStyle}
               />
               <br></br>
-               {message !== '' && <span className='err' >Email invalide!!!</span>}
+              <div>
+  {message === 'Invalid email address' && <span className='err'>Email invalide!</span>}
+
+</div>
+
             </div>
-            <button className="inscription-button">S'inscrire</button>
+            <button className="inscription-button" onClick={handleSubmit}  >S'inscrire</button>
+            <Example smShow={smShow} onhide={() => setSmShow(false)}/>
           </form>
           <span className="link">
             Vous avez déja un compte? <a style={{cursor:'pointer'}} href='/Login'>connectez vous</a>
           </span>
+      
         </div>
       </div>
     </div>

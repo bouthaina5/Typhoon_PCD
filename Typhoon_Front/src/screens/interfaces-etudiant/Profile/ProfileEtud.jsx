@@ -8,6 +8,10 @@ import Avatar from 'react-avatar-edit';
 import location from '../../../assets/location.png';
 import mobile from '../../../assets/mobile.png';
 import ProgressBarProfile from '../../../components/ProfileProgressBar/ProgressBar';
+import"primereact/resources/themes/lara-light-indigo/theme.css"
+import"primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import {InputNumber} from 'primereact/inputnumber';
 const ProfileEtud = () => {
   const [image, setImage] = useState('');
   const [imageCrop, setimageCrop] = useState('');
@@ -15,6 +19,14 @@ const ProfileEtud = () => {
   const [profile, setProfile] = useState([]);
   const [pview, setPview] = useState(false);
   const profileFinal = profile.map((item) => item.pview);
+  const [vis,setVis]=useState(false)
+  const [value,setValue]=useState(0)
+   const footer = (
+       <div>
+         <Button label='Annuler' icon="pi pi-times" onClick={()=>setVis(false)} className='p-button-text'/>
+         <Button label='Enregistrer' icon="pi pi-check" onClick={()=>setVis(false)} autoFocus/>
+       </div>
+  );
 
   const onClose = () => {
     setPview(null);
@@ -92,9 +104,22 @@ const ProfileEtud = () => {
               <div>
                 <p>Loisirs</p>
               </div>
-              <button>Modifier le profil</button>
+              <Button label='modifier le profil' onClick={()=>setVis(true)} />
             </div>
-
+              <Dialog 
+                visible={vis}
+                onHide={()=>setVis(false)}
+                header='Modifier mon profil'
+                style={{width:'50vw'}}
+                footer={footer}
+              >
+                  <div className='card flex justify-content-center' style>
+                  <span className='p-float-label'>
+                    <InputNumber id="number-input" value={value} onValueChange={(e)=>setValue(e.value)} />
+                    <label htmlFor='number-input'>Number</label>
+                  </span>
+                  </div>
+              </Dialog>
             <Dialog
               visible={imageCrop}
               header={() => {
@@ -103,7 +128,6 @@ const ProfileEtud = () => {
                 </p>;
               }}
               onHide={() => setimageCrop(false)}
-              className="dialog-window"
             >
               <div className="confirmation-content">
                 <Avatar

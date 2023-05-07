@@ -44,7 +44,7 @@ const Login = () => {
           window.location.href = "http://127.0.0.1:5173/addModule";
         }
         if(data.role=="admin"){
-          window.location.href = "http://127.0.0.1:5173/addModule";
+          window.location.href = "http://127.0.0.1:5173/admin";
         }
     
 
@@ -66,7 +66,7 @@ const Login = () => {
     <div className="conteneur">
       <div className="carte-signin">
         <div className="titre">
-          <h2>connectez-vous</h2>
+          <h2 style={{color:'#617a55'}}>connectez-vous</h2>
         </div>
         <div className="cartecorps">
           <form className="formulaire" onSubmit={handleSubmit}>
@@ -96,6 +96,8 @@ const Login = () => {
                 placeholder="mot de passe"
               />
             </div>
+            <div>
+            {message === 'Invalid email address' && <span className='err'>Compte non trouvé!!</span>}</div>
             <button className="connexion-button" onClick={handleSubmit}>Connexion</button>
           </form>
           <span className="link">

@@ -8,12 +8,20 @@ import trash from '../../assets/trash.png';
 import edit from '../../assets/editing.png';
 import data from '../interfaces-communes/BanquesData.json';
 import QuestionModel from '../../components/questionModel/QuestionModel';
+import MydModalWithGrid from'../../components/scorepopup/scorepopup';
+import {Button} from 'primereact/button';
+import"primereact/resources/themes/lara-light-indigo/theme.css"
+import"primereact/resources/primereact.min.css";
+import Table from 'react-bootstrap/Table';
 const Tableauquest = () => {
   const{modulename}=useParams();
   const{banquename}=useParams();
   const [modalShow, setModalShow] = React.useState(false);
   const [modalStates, setModalStates] = useState({});
-  const[questions,setQuestions]=useState([])
+  const[questions,setQuestions]=useState([]);
+  const[score,setScore]=useState([]);
+  const[modalShoww,setModalShoww]=useState(false)
+
   useEffect(()=> {
     fetch("http://127.0.0.1:5000/ques" ,{
       method:'POST',
@@ -42,10 +50,20 @@ const Tableauquest = () => {
       [questionId]: false,
     }));
   };
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+     
+    fetch('http://127.0.0.1:5000/affichescore',{ mode : 'cors'})
+    .then(response => response.json())
+    .then(data =>  setScore(data.score)  )  
+    setModalShoww(true);
+   };
+   console.log(score);
+
   return (
 
       <div className="table_container">
-       <table className='table-question'> 
+       <Table className='table-question' striped> 
        <thead>
           <tr className='lig'>
             <th>title</th>
@@ -69,6 +87,7 @@ const Tableauquest = () => {
                           des={banque.descriptionquestion}
                           options={banque.options}
                           type={banque.type}
+                          nb={banque.nbbanque}
                           nbquestion={banque.nbquestion}
                           show={modalStates[banque.nbquestion]}
                           onHide={() => handleHideModal(banque.nbquestion)}/>
@@ -78,7 +97,9 @@ const Tableauquest = () => {
                   
                 </tr>)})}
                 </tbody>
-                </table>
+                </Table>
+                <Button onClick={handleSubmit} label='Vérifier' style={{margin:'2rem'}}/>  
+                <MydModalWithGrid show={modalShoww} onHide={()=>setModalShoww(false)} score={score}/>
       </div>
   );
 };

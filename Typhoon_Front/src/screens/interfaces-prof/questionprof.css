@@ -1,4 +1,4 @@
-tr {
+/* tr {
     border: none;
     background-color:#e3f2c1;
     border-bottom: 5px solid white;  
@@ -9,16 +9,17 @@ tr {
     border-color:#c9dbb2;
   }
   th {
-    padding: 2px; /* Modifier la valeur selon vos besoins */
+    padding: 2px;
     border-bottom: 1px solid #ddd;
     width: 30px;
     border: none;
-  }
+  } */
 
   .table_container{
     margin-top: 10%;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
   }
   .table-question {
@@ -26,21 +27,21 @@ tr {
     margin-right: 10%;
     bottom:50%;
     border-collapse: collapse;
-    width: 80%;
+    width: 90%;
     line-height: 2;
     border-spacing: 10px 0;
   }
  
-  td {
-    padding: 2px; /* Modifier la valeur selon vos besoins */
+  /* td {
+    padding: 2px;
     border-bottom: 1px solid #ddd;
     width: 30px;
     border: none;
-  }
+  } */
   .lig{
     border: none;
     text-align: left;
-  background-color: #ffffff;
+  background-color: transparent;
 
   }
   .popup{

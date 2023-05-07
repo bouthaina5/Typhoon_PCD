@@ -13,6 +13,7 @@ import Tableau from './screens/interfaces-communes/banque';
 import Banquejouer from './screens/interfaces-prof/banquejouer';
 import Tableauquest from './screens/interfaces-prof/questionprof';
 import CreateModule from './screens/interface-coordinateur/module-res';
+import Admin from './screens/interface-admin/admin';
 function App() {
   return (
     <Router>
@@ -31,6 +32,7 @@ function App() {
         <Route path="/lancer_jeu" element={<Banquejouer />} />
         <Route path="/modules/:modulename/:banquename" element={<Tableauquest />} />
         <Route path="/addModule" element={<CreateModule />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   );

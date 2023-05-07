@@ -1,5 +1,6 @@
  .container { 
   width: 18rem;
+  border-radius: 15px;
 } 
 .card {
     -moz-perspective: 300rem;

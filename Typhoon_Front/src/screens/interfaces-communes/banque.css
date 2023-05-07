@@ -44,10 +44,10 @@
     border-radius: 10px;
     background-color:#fafafa;
     border-bottom: 5px solid white;}
-    tr:hover{
+    /* tr:hover{
       background-color: #ffffff;
       border-color:#555;
-    }
+    } */
   
   td {
     width: 33.33%;
@@ -57,7 +57,7 @@
  
   .ligne1{
     border: none;
-    background-color: #ffffff;
+    background-color: transparent;
 
   }
    
